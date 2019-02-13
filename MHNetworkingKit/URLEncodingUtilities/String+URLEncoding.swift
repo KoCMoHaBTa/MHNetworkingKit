@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    var urlDecodedParameters: [String: String] {
+    public var urlDecodedParameters: [String: String] {
         
         let pairs = self.components(separatedBy: "&")
         let parameters = pairs.reduce([:]) { (result, pair) -> [String: String] in

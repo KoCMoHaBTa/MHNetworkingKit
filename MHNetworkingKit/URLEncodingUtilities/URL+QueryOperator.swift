@@ -8,13 +8,13 @@
 
 import Foundation
 
-func +(lhs: URL, rhs: String) -> URL {
+public func +(lhs: URL, rhs: String) -> URL {
     
     return lhs.appendingPathComponent(rhs)
 }
 
 infix operator +? : AdditionPrecedence
-func +?(lhs: URL, rhs: [String: Any]) -> URL? {
+public func +?(lhs: URL, rhs: [String: Any]) -> URL? {
     
     var components = URLComponents(url: lhs, resolvingAgainstBaseURL: true)
     components?.percentEncodedQuery = rhs.urlEncodedParametersString
@@ -23,7 +23,7 @@ func +?(lhs: URL, rhs: [String: Any]) -> URL? {
 }
 
 infix operator +?! : AdditionPrecedence
-func +?!(lhs: URL, rhs: [String: Any]) -> URL {
+public func +?!(lhs: URL, rhs: [String: Any]) -> URL {
     
     return (lhs +? rhs)!
 }

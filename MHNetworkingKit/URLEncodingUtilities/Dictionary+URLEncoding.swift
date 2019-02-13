@@ -24,7 +24,7 @@ extension Dictionary {
         return self.urlEncode(String(describing: object))
     }
     
-    var urlEncodedParametersString: String {
+    public var urlEncodedParametersString: String {
         
         var result = self.reduce("") { (result, element) -> String in
             
@@ -42,7 +42,7 @@ extension Dictionary {
         return result
     }
     
-    var urlEncodedParametersData: Data? {
+    public var urlEncodedParametersData: Data? {
         
         return self.urlEncodedParametersString.data(using: .utf8)
     }

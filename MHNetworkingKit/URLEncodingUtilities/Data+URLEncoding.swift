@@ -10,7 +10,7 @@ import Foundation
 
 extension Data {
     
-    var urlDecodedParameters: [String: String]? {
+    public var urlDecodedParameters: [String: String]? {
         
         return String(data: self, encoding: .utf8)?.urlDecodedParameters
     }
