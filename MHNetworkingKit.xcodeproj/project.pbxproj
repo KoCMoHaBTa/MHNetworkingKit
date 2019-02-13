@@ -11,6 +11,12 @@
 		E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDEF0221459010043DF77 /* MHNetworkingKitTests.swift */; };
 		E6EDDEF3221459010043DF77 /* MHNetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E6EDDEE5221459010043DF77 /* MHNetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6EDDEFD221459550043DF77 /* MHNetworkingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDEFC221459550043DF77 /* MHNetworkingKit.swift */; };
+		E6EDDF03221463C00043DF77 /* Dictionary+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF02221463C00043DF77 /* Dictionary+URLEncoding.swift */; };
+		E6EDDF05221463CA0043DF77 /* String+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF04221463CA0043DF77 /* String+URLEncoding.swift */; };
+		E6EDDF07221463D80043DF77 /* Data+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF06221463D80043DF77 /* Data+URLEncoding.swift */; };
+		E6EDDF09221464160043DF77 /* URL+QueryOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF08221464160043DF77 /* URL+QueryOperator.swift */; };
+		E6EDDF0B221464800043DF77 /* URLEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */; };
+		E6EDDF0D221464B40043DF77 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF0C221464B40043DF77 /* XCTestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,12 @@
 		E6EDDEFC221459550043DF77 /* MHNetworkingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHNetworkingKit.swift; sourceTree = "<group>"; };
 		E6EDDEFF22145A240043DF77 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E6EDDF00221462FC0043DF77 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E6EDDF02221463C00043DF77 /* Dictionary+URLEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+URLEncoding.swift"; sourceTree = "<group>"; };
+		E6EDDF04221463CA0043DF77 /* String+URLEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URLEncoding.swift"; sourceTree = "<group>"; };
+		E6EDDF06221463D80043DF77 /* Data+URLEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+URLEncoding.swift"; sourceTree = "<group>"; };
+		E6EDDF08221464160043DF77 /* URL+QueryOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+QueryOperator.swift"; sourceTree = "<group>"; };
+		E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodingTests.swift; sourceTree = "<group>"; };
+		E6EDDF0C221464B40043DF77 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,7 @@
 			children = (
 				E6EDDEE5221459010043DF77 /* MHNetworkingKit.h */,
 				E6EDDEFC221459550043DF77 /* MHNetworkingKit.swift */,
+				E6EDDF01221463A90043DF77 /* URLEncodingUtilities */,
 				E6EDDEE6221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKit;
@@ -87,10 +100,23 @@
 		E6EDDEEF221459010043DF77 /* MHNetworkingKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				E6EDDF0C221464B40043DF77 /* XCTestExtensions.swift */,
 				E6EDDEF0221459010043DF77 /* MHNetworkingKitTests.swift */,
+				E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */,
 				E6EDDEF2221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKitTests;
+			sourceTree = "<group>";
+		};
+		E6EDDF01221463A90043DF77 /* URLEncodingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				E6EDDF02221463C00043DF77 /* Dictionary+URLEncoding.swift */,
+				E6EDDF04221463CA0043DF77 /* String+URLEncoding.swift */,
+				E6EDDF06221463D80043DF77 /* Data+URLEncoding.swift */,
+				E6EDDF08221464160043DF77 /* URL+QueryOperator.swift */,
+			);
+			path = URLEncodingUtilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6EDDF09221464160043DF77 /* URL+QueryOperator.swift in Sources */,
+				E6EDDF07221463D80043DF77 /* Data+URLEncoding.swift in Sources */,
+				E6EDDF03221463C00043DF77 /* Dictionary+URLEncoding.swift in Sources */,
+				E6EDDF05221463CA0043DF77 /* String+URLEncoding.swift in Sources */,
 				E6EDDEFD221459550043DF77 /* MHNetworkingKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6EDDF0B221464800043DF77 /* URLEncodingTests.swift in Sources */,
+				E6EDDF0D221464B40043DF77 /* XCTestExtensions.swift in Sources */,
 				E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
