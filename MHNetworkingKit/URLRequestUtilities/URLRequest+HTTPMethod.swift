@@ -12,7 +12,7 @@ extension URLRequest {
     
     ///HTTP method
     ///
-    ///[Online Reference](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)    
+    ///[Online Reference](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
     public struct HTTPMethod: RawRepresentable, ExpressibleByStringLiteral {
         
         public var rawValue: String
