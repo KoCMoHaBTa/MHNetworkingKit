@@ -12,17 +12,24 @@ extension URLRequest {
     
     ///HTTP method
     ///
-    ///[Online Reference](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
-    public enum HTTPMethod: String {
+    ///[Online Reference](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)    
+    public struct HTTPMethod: RawRepresentable, ExpressibleByStringLiteral {
         
-        case get = "GET"
-        case put = "PUT"
-        case post = "POST"
-        case delete = "DELETE"
-        case head = "HEAD"
-        case options = "OPTIONS"
-        case trace = "TRACE"
-        case connect = "CONNECT"
+        public var rawValue: String
+        
+        public init?(rawValue: String) { self.rawValue = rawValue }
+        public init(stringLiteral value: String) { self.rawValue = value }
+        public init(unicodeScalarLiteral value: String) { self.rawValue = value }
+        public init(extendedGraphemeClusterLiteral value: String) { self.rawValue = value }
+        
+        public static var get: HTTPMethod = "GET"
+        public static var put: HTTPMethod = "PUT"
+        public static var post: HTTPMethod = "POST"
+        public static var delete: HTTPMethod = "DELETE"
+        public static var head: HTTPMethod = "HEAD"
+        public static var options: HTTPMethod = "OPTIONS"
+        public static var trace: HTTPMethod = "TRACE"
+        public static var connect: HTTPMethod = "CONNECT"
     }
     
     public var method: HTTPMethod? {
