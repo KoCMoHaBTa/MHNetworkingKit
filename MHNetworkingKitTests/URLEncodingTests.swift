@@ -37,4 +37,9 @@ class URLEncodingTests: XCTestCase {
         XCTAssertEqual(URL(string: "https://google.com/test/path/doSomething/")! +?! ["p1": "v1"], URL(string: "https://google.com/test/path/doSomething/?p1=v1")!)
         XCTAssertEqual((URL(string: "https://google.com")! +? ["p1": "v1", "p2": "v2"])?.query?.urlDecodedParameters, ["p1": "v1", "p2": "v2"])
     }
+    
+    func testEmptyDictionaryParameters() {
+        
+        XCTAssertEqual(URL(string: "https://google.com")! +?! [:], URL(string: "https://google.com")!)
+    }
 }

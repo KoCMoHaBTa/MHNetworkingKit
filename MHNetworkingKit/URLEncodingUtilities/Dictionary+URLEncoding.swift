@@ -35,10 +35,13 @@ extension Dictionary {
             return result
         }
         
-        //remove the first `&` character
-        let index = result.index(result.startIndex, offsetBy: 1)
-        result = String(result[index ..< result.endIndex])
-        
+        if !result.isEmpty {
+            
+            //remove the first `&` character
+            let index = result.index(result.startIndex, offsetBy: 1)
+            result = String(result[index ..< result.endIndex])
+        }
+                
         return result
     }
     

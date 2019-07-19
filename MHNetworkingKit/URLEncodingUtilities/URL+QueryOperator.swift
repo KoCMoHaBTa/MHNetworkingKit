@@ -16,6 +16,11 @@ public func +(lhs: URL, rhs: String) -> URL {
 infix operator +? : AdditionPrecedence
 public func +?(lhs: URL, rhs: [String: Any]) -> URL? {
     
+    guard rhs.count > 0 else {
+        
+        return lhs
+    }
+    
     var components = URLComponents(url: lhs, resolvingAgainstBaseURL: true)
     components?.percentEncodedQuery = rhs.urlEncodedParametersString
     
