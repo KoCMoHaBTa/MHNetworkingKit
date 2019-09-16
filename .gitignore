@@ -40,3 +40,4 @@ playground.xcworkspace
 
 ## Swift Package Manager
 .swiftpm/
+.build/
