@@ -37,3 +37,6 @@ playground.xcworkspace
 ## Custom
 *.log
 *.xcscmblueprint
+
+## Swift Package Manager
+.swiftpm/

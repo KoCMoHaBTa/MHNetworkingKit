@@ -43,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E630300B232FB4760002AAEE /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		E64FF3BC232FBBAD00E24899 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E651C9AD2215FBFF00FEFBCC /* Decodable+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+JSON.swift"; sourceTree = "<group>"; };
 		E651C9B1221605AA00FEFBCC /* KeyedDecodingContainer+Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+Generics.swift"; sourceTree = "<group>"; };
 		E651C9B3221605C100FEFBCC /* UnkeyedDecodingContainer+Generics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnkeyedDecodingContainer+Generics.swift"; sourceTree = "<group>"; };
@@ -113,9 +115,11 @@
 		E6EDDED8221459010043DF77 = {
 			isa = PBXGroup;
 			children = (
+				E64FF3BC232FBBAD00E24899 /* .gitignore */,
 				E6EDDEFF22145A240043DF77 /* README.md */,
 				E6EDDF00221462FC0043DF77 /* LICENSE */,
 				E689B9922216F21600EAE5A7 /* MHNetworkingKit.podspec */,
+				E630300B232FB4760002AAEE /* Package.swift */,
 				E6EDDEE4221459010043DF77 /* MHNetworkingKit */,
 				E6EDDEEF221459010043DF77 /* MHNetworkingKitTests */,
 				E6EDDEE3221459010043DF77 /* Products */,
