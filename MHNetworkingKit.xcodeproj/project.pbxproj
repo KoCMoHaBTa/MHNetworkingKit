@@ -14,6 +14,7 @@
 		E651C9C22216071500FEFBCC /* AnyEncodableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9C12216071500FEFBCC /* AnyEncodableValue.swift */; };
 		E651C9C52216079200FEFBCC /* MultipartFormDataPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9C42216079200FEFBCC /* MultipartFormDataPart.swift */; };
 		E651C9C82216083C00FEFBCC /* URLRequest+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9C72216083C00FEFBCC /* URLRequest+JSON.swift */; };
+		E656F48A233DFCCC00DF57E7 /* ArrayDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */; };
 		E665630422E86F110056F954 /* AnyEncodableValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E665630322E86F110056F954 /* AnyEncodableValueTests.swift */; };
 		E689B9932216F21600EAE5A7 /* MHNetworkingKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E689B9922216F21600EAE5A7 /* MHNetworkingKit.podspec */; };
 		E6EDDEEC221459010043DF77 /* MHNetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EDDEE2221459010043DF77 /* MHNetworkingKit.framework */; };
@@ -52,6 +53,7 @@
 		E651C9C12216071500FEFBCC /* AnyEncodableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodableValue.swift; sourceTree = "<group>"; };
 		E651C9C42216079200FEFBCC /* MultipartFormDataPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataPart.swift; sourceTree = "<group>"; };
 		E651C9C72216083C00FEFBCC /* URLRequest+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+JSON.swift"; sourceTree = "<group>"; };
+		E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDecodingTests.swift; sourceTree = "<group>"; };
 		E665630322E86F110056F954 /* AnyEncodableValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodableValueTests.swift; sourceTree = "<group>"; };
 		E689B9922216F21600EAE5A7 /* MHNetworkingKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MHNetworkingKit.podspec; sourceTree = "<group>"; };
 		E6EDDEE2221459010043DF77 /* MHNetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHNetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */,
 				E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */,
 				E665630322E86F110056F954 /* AnyEncodableValueTests.swift */,
+				E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */,
 				E6EDDEF2221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKitTests;
@@ -324,6 +327,7 @@
 				E6EDDF0D221464B40043DF77 /* XCTestExtensions.swift in Sources */,
 				E6EDDF1522146D220043DF77 /* MultipartFormDataTests.swift in Sources */,
 				E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */,
+				E656F48A233DFCCC00DF57E7 /* ArrayDecodingTests.swift in Sources */,
 				E665630422E86F110056F954 /* AnyEncodableValueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

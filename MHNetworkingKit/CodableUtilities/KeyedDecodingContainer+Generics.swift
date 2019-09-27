@@ -59,11 +59,7 @@ extension KeyedDecodingContainer {
     public func decodeArray<T>(forKey key: Key) throws -> [T] where T: Decodable {
         
         var result: [T] = []
-        
-        guard var container = try? self.nestedUnkeyedContainer(forKey: key) else {
-            
-            return result
-        }
+        var container = try self.nestedUnkeyedContainer(forKey: key)
         
         for _ in 0..<(container.count ?? 0) {
             

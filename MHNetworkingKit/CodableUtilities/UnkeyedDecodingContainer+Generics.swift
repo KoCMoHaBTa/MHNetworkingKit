@@ -40,11 +40,7 @@ extension UnkeyedDecodingContainer {
     public mutating func decodeArray<T>() throws -> [T] where T: Decodable {
         
         var result: [T] = []
-        
-        guard var container = try? self.nestedUnkeyedContainer() else {
-            
-            return result
-        }
+        var container = try self.nestedUnkeyedContainer()
         
         for _ in 0..<(container.count ?? 0) {
             
