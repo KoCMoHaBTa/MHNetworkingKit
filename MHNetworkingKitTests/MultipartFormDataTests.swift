@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHNetworkingKit
@@ -80,3 +81,4 @@ class MultipartFormDataTests: XCTestCase {
         XCTAssertEqual(expectedResult, string)
     }
 }
+#endif

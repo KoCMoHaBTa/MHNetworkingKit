@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import XCTest
 @testable import MHNetworkingKit
 
@@ -32,3 +33,4 @@ class MHNetworkingKitTests: XCTestCase {
     }
 
 }
+#endif

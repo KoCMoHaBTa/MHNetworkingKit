@@ -6,6 +6,7 @@
 //  Copyright © 2016 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 
@@ -84,3 +85,4 @@ extension XCTestExpectation {
         self.fulfill()
     }
 }
+#endif

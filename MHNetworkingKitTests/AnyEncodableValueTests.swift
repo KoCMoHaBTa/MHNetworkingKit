@@ -6,6 +6,7 @@
 //  Copyright © 2019 Milen Halachev. All rights reserved.
 //
 
+#if !os(watchOS)
 import Foundation
 import XCTest
 @testable import MHNetworkingKit
@@ -116,3 +117,4 @@ class AnyEncodableValueTests: XCTestCase {
 //        XCTAssertEqual(dict["myObject"] as? [String: AnyHashable], ["myAnyString": "gg", "myString": "zz", "arr": [1, 3, 2]])
     }
 }
+#endif
