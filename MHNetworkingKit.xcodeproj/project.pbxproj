@@ -17,6 +17,11 @@
 		E656F48A233DFCCC00DF57E7 /* ArrayDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */; };
 		E665630422E86F110056F954 /* AnyEncodableValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E665630322E86F110056F954 /* AnyEncodableValueTests.swift */; };
 		E689B9932216F21600EAE5A7 /* MHNetworkingKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E689B9922216F21600EAE5A7 /* MHNetworkingKit.podspec */; };
+		E6AE7FD72565133600FAD912 /* ISO8601Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7FD52565133500FAD912 /* ISO8601Formatted.swift */; };
+		E6AE7FD82565133600FAD912 /* ISO8601Formattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7FD62565133600FAD912 /* ISO8601Formattable.swift */; };
+		E6AE7FE2256513F000FAD912 /* ISO8601FormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7FE1256513F000FAD912 /* ISO8601FormattingTests.swift */; };
+		E6AE7FE62565144400FAD912 /* Codable+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7FE52565144400FAD912 /* Codable+JSONFile.swift */; };
+		E6AE7FEA256514CF00FAD912 /* URLComponents+PathComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AE7FE9256514CF00FAD912 /* URLComponents+PathComponents.swift */; };
 		E6EDDEEC221459010043DF77 /* MHNetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EDDEE2221459010043DF77 /* MHNetworkingKit.framework */; };
 		E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDEF0221459010043DF77 /* MHNetworkingKitTests.swift */; };
 		E6EDDEF3221459010043DF77 /* MHNetworkingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E6EDDEE5221459010043DF77 /* MHNetworkingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +61,11 @@
 		E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDecodingTests.swift; sourceTree = "<group>"; };
 		E665630322E86F110056F954 /* AnyEncodableValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodableValueTests.swift; sourceTree = "<group>"; };
 		E689B9922216F21600EAE5A7 /* MHNetworkingKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MHNetworkingKit.podspec; sourceTree = "<group>"; };
+		E6AE7FD52565133500FAD912 /* ISO8601Formatted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601Formatted.swift; sourceTree = "<group>"; };
+		E6AE7FD62565133600FAD912 /* ISO8601Formattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601Formattable.swift; sourceTree = "<group>"; };
+		E6AE7FE1256513F000FAD912 /* ISO8601FormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601FormattingTests.swift; sourceTree = "<group>"; };
+		E6AE7FE52565144400FAD912 /* Codable+JSONFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+JSONFile.swift"; sourceTree = "<group>"; };
+		E6AE7FE9256514CF00FAD912 /* URLComponents+PathComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+PathComponents.swift"; sourceTree = "<group>"; };
 		E6EDDEE2221459010043DF77 /* MHNetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHNetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6EDDEE5221459010043DF77 /* MHNetworkingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHNetworkingKit.h; sourceTree = "<group>"; };
 		E6EDDEE6221459010043DF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +124,15 @@
 			path = URLRequestUtilities;
 			sourceTree = "<group>";
 		};
+		E6AE7FD42565131C00FAD912 /* ISO8601 */ = {
+			isa = PBXGroup;
+			children = (
+				E6AE7FD62565133600FAD912 /* ISO8601Formattable.swift */,
+				E6AE7FD52565133500FAD912 /* ISO8601Formatted.swift */,
+			);
+			path = ISO8601;
+			sourceTree = "<group>";
+		};
 		E6EDDED8221459010043DF77 = {
 			isa = PBXGroup;
 			children = (
@@ -142,10 +161,12 @@
 			children = (
 				E6EDDEE5221459010043DF77 /* MHNetworkingKit.h */,
 				E6EDDEFC221459550043DF77 /* MHNetworkingKit.swift */,
+				E6AE7FE9256514CF00FAD912 /* URLComponents+PathComponents.swift */,
 				E651C9C62216082400FEFBCC /* URLRequestUtilities */,
 				E651C9C32216078400FEFBCC /* MultipartFormData */,
 				E6EDDF01221463A90043DF77 /* URLEncodingUtilities */,
 				E6EDDF1622146D8C0043DF77 /* CodableUtilities */,
+				E6AE7FD42565131C00FAD912 /* ISO8601 */,
 				E6EDDEE6221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKit;
@@ -160,6 +181,7 @@
 				E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */,
 				E665630322E86F110056F954 /* AnyEncodableValueTests.swift */,
 				E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */,
+				E6AE7FE1256513F000FAD912 /* ISO8601FormattingTests.swift */,
 				E6EDDEF2221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKitTests;
@@ -185,6 +207,7 @@
 				E651C9B3221605C100FEFBCC /* UnkeyedDecodingContainer+Generics.swift */,
 				E651C9BF221606E100FEFBCC /* DynamicCodingKey.swift */,
 				E651C9C12216071500FEFBCC /* AnyEncodableValue.swift */,
+				E6AE7FE52565144400FAD912 /* Codable+JSONFile.swift */,
 			);
 			path = CodableUtilities;
 			sourceTree = "<group>";
@@ -302,12 +325,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6EDDF1022146B1F0043DF77 /* URLRequest+HTTPMethod.swift in Sources */,
+				E6AE7FD72565133600FAD912 /* ISO8601Formatted.swift in Sources */,
+				E6AE7FD82565133600FAD912 /* ISO8601Formattable.swift in Sources */,
 				E651C9B2221605AA00FEFBCC /* KeyedDecodingContainer+Generics.swift in Sources */,
+				E6AE7FE62565144400FAD912 /* Codable+JSONFile.swift in Sources */,
 				E6EDDF09221464160043DF77 /* URL+QueryOperator.swift in Sources */,
 				E651C9C22216071500FEFBCC /* AnyEncodableValue.swift in Sources */,
 				E651C9C0221606E100FEFBCC /* DynamicCodingKey.swift in Sources */,
 				E6EDDF1322146CC80043DF77 /* MultipartFormData.swift in Sources */,
 				E651C9C82216083C00FEFBCC /* URLRequest+JSON.swift in Sources */,
+				E6AE7FEA256514CF00FAD912 /* URLComponents+PathComponents.swift in Sources */,
 				E6EDDF07221463D80043DF77 /* Data+URLEncoding.swift in Sources */,
 				E651C9AE2215FBFF00FEFBCC /* Decodable+JSON.swift in Sources */,
 				E651C9B4221605C100FEFBCC /* UnkeyedDecodingContainer+Generics.swift in Sources */,
@@ -328,6 +355,7 @@
 				E6EDDF1522146D220043DF77 /* MultipartFormDataTests.swift in Sources */,
 				E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */,
 				E656F48A233DFCCC00DF57E7 /* ArrayDecodingTests.swift in Sources */,
+				E6AE7FE2256513F000FAD912 /* ISO8601FormattingTests.swift in Sources */,
 				E665630422E86F110056F954 /* AnyEncodableValueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

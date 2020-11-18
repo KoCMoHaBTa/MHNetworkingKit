@@ -31,6 +31,17 @@ class MHNetworkingKitTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testURLComponentsPathCompoenents() {
+        
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar/a/b/c?o=1&t=2")!, resolvingAgainstBaseURL: false)?.pathComponents, ["a", "b", "c"])
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar/a/b/c")!, resolvingAgainstBaseURL: false)?.pathComponents, ["a", "b", "c"])
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar/a/b/c/")!, resolvingAgainstBaseURL: false)?.pathComponents, ["a", "b", "c"])
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar/a/b/c/?")!, resolvingAgainstBaseURL: false)?.pathComponents, ["a", "b", "c"])
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar/a/b/c/?o=1")!, resolvingAgainstBaseURL: false)?.pathComponents, ["a", "b", "c"])
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar/")!, resolvingAgainstBaseURL: false)?.pathComponents, [])
+        XCTAssertEqual(URLComponents(url: URL(string: "https://foo.bar")!, resolvingAgainstBaseURL: false)?.pathComponents, [])
+    }
 
 }
 #endif
