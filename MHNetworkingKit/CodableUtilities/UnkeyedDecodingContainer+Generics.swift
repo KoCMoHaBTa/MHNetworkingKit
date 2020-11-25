@@ -37,7 +37,13 @@ extension UnkeyedDecodingContainer {
     }
     
     ///Decodes an array value, throwing away elements that cannot be decoded and returning successfully decoded elements.
+    @available(*, deprecated, message: "Use @LossyDecoded or decodeLossyArray() instead")
     public mutating func decodeArray<T>() throws -> [T] where T: Decodable {
+        
+        return try self.decodeLossyArray()
+    }
+    
+    public mutating func decodeLossyArray<T>() throws -> [T] where T: Decodable {
         
         var result: [T] = []
         var container = try self.nestedUnkeyedContainer()
@@ -54,9 +60,15 @@ extension UnkeyedDecodingContainer {
     }
     
     ///Decodes an array value, throwing away elements that cannot be decoded and returning successfully decoded elements, applying a transformation block from one type to another.
+    @available(*, deprecated, message: "Use decodeLossyArray(transform:) instead")
     public mutating func decodeArray<T, U>(transform: ([U]) throws -> [T]) throws -> [T] where T: Decodable, U: Decodable {
         
-        let original: [U] = try self.decodeArray()
+        return try self.decodeLossyArray(transform: transform)
+    }
+    
+    public mutating func decodeLossyArray<T, U>(transform: ([U]) throws -> [T]) throws -> [T] where T: Decodable, U: Decodable {
+        
+        let original: [U] = try self.decodeLossyArray()
         return try transform(original)
     }
 }

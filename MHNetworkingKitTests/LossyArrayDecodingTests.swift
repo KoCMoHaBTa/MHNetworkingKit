@@ -1,5 +1,5 @@
 //
-//  ArrayDecodingTests.swift
+//  LossyArrayDecodingTests.swift
 //  MHNetworkingKitTests
 //
 //  Created by Milen Halachev on 27.09.19.
@@ -11,7 +11,7 @@ import Foundation
 import XCTest
 @testable import MHNetworkingKit
 
-class ArrayDecodingTests: XCTestCase {
+class LossyArrayDecodingTests: XCTestCase {
     
     struct OptionalArrayModel: Codable {
         
@@ -23,7 +23,7 @@ class ArrayDecodingTests: XCTestCase {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
             self.name = try container.decode(forKey: .name)
-            self.arr = try? container.decodeArray(forKey: .arr)
+            self.arr = try? container.decodeLossyArray(forKey: .arr)
         }
         
         enum CodingKeys: String, CodingKey {
@@ -43,7 +43,7 @@ class ArrayDecodingTests: XCTestCase {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
             self.name = try container.decode(forKey: .name)
-            self.arr = try container.decodeArray(forKey: .arr)
+            self.arr = try container.decodeLossyArray(forKey: .arr)
         }
         
         enum CodingKeys: String, CodingKey {
