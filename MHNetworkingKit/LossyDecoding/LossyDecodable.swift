@@ -11,9 +11,9 @@ import Foundation
 /**
  A type that supports lossy decoding.
  Currently supports types are:
- - Array - discards any elements that cannot be deocoded
- - Set - discards any elements that cannot be deocoded
- - Dictionary - discards any values that cannot be deocoded
+ - Array - discards any elements that cannot be decoded
+ - Set - discards any elements that cannot be decoded
+ - Dictionary - discards any values that cannot be decoded
  - Optional - defaults to `nil` if cannot be decoded
  */
 
