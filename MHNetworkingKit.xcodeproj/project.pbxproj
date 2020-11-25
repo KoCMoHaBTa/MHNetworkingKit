@@ -36,6 +36,10 @@
 		E6EDDF1322146CC80043DF77 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF1222146CC80043DF77 /* MultipartFormData.swift */; };
 		E6EDDF1522146D220043DF77 /* MultipartFormDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */; };
 		E6EDDF1822146DA30043DF77 /* Encodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF1722146DA30043DF77 /* Encodable+JSON.swift */; };
+		E6F83003256E6C0D00CE1A7C /* LossyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F83002256E6C0D00CE1A7C /* LossyDecodable.swift */; };
+		E6F8300E256E89C600CE1A7C /* LossyDecoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F8300D256E89C600CE1A7C /* LossyDecoded.swift */; };
+		E6F83014256E89EF00CE1A7C /* AnyCodingKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F83013256E89EF00CE1A7C /* AnyCodingKey.swift */; };
+		E6F83018256E8A6C00CE1A7C /* LossyDecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F83017256E8A6C00CE1A7C /* LossyDecodingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		E6EDDF1222146CC80043DF77 /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataTests.swift; sourceTree = "<group>"; };
 		E6EDDF1722146DA30043DF77 /* Encodable+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+JSON.swift"; sourceTree = "<group>"; };
+		E6F83002256E6C0D00CE1A7C /* LossyDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossyDecodable.swift; sourceTree = "<group>"; };
+		E6F8300D256E89C600CE1A7C /* LossyDecoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossyDecoded.swift; sourceTree = "<group>"; };
+		E6F83013256E89EF00CE1A7C /* AnyCodingKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodingKey.swift; sourceTree = "<group>"; };
+		E6F83017256E8A6C00CE1A7C /* LossyDecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossyDecodingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,7 @@
 				E6EDDF01221463A90043DF77 /* URLEncodingUtilities */,
 				E6EDDF1622146D8C0043DF77 /* CodableUtilities */,
 				E6AE7FD42565131C00FAD912 /* ISO8601 */,
+				E6F8300C256E89B200CE1A7C /* LossyDecoding */,
 				E6EDDEE6221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKit;
@@ -182,6 +191,7 @@
 				E665630322E86F110056F954 /* AnyEncodableValueTests.swift */,
 				E656F489233DFCCC00DF57E7 /* ArrayDecodingTests.swift */,
 				E6AE7FE1256513F000FAD912 /* ISO8601FormattingTests.swift */,
+				E6F83017256E8A6C00CE1A7C /* LossyDecodingTests.swift */,
 				E6EDDEF2221459010043DF77 /* Info.plist */,
 			);
 			path = MHNetworkingKitTests;
@@ -208,8 +218,18 @@
 				E651C9BF221606E100FEFBCC /* DynamicCodingKey.swift */,
 				E651C9C12216071500FEFBCC /* AnyEncodableValue.swift */,
 				E6AE7FE52565144400FAD912 /* Codable+JSONFile.swift */,
+				E6F83013256E89EF00CE1A7C /* AnyCodingKey.swift */,
 			);
 			path = CodableUtilities;
+			sourceTree = "<group>";
+		};
+		E6F8300C256E89B200CE1A7C /* LossyDecoding */ = {
+			isa = PBXGroup;
+			children = (
+				E6F83002256E6C0D00CE1A7C /* LossyDecodable.swift */,
+				E6F8300D256E89C600CE1A7C /* LossyDecoded.swift */,
+			);
+			path = LossyDecoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +344,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6F83003256E6C0D00CE1A7C /* LossyDecodable.swift in Sources */,
+				E6F8300E256E89C600CE1A7C /* LossyDecoded.swift in Sources */,
 				E6EDDF1022146B1F0043DF77 /* URLRequest+HTTPMethod.swift in Sources */,
 				E6AE7FD72565133600FAD912 /* ISO8601Formatted.swift in Sources */,
 				E6AE7FD82565133600FAD912 /* ISO8601Formattable.swift in Sources */,
@@ -334,6 +356,7 @@
 				E651C9C0221606E100FEFBCC /* DynamicCodingKey.swift in Sources */,
 				E6EDDF1322146CC80043DF77 /* MultipartFormData.swift in Sources */,
 				E651C9C82216083C00FEFBCC /* URLRequest+JSON.swift in Sources */,
+				E6F83014256E89EF00CE1A7C /* AnyCodingKey.swift in Sources */,
 				E6AE7FEA256514CF00FAD912 /* URLComponents+PathComponents.swift in Sources */,
 				E6EDDF07221463D80043DF77 /* Data+URLEncoding.swift in Sources */,
 				E651C9AE2215FBFF00FEFBCC /* Decodable+JSON.swift in Sources */,
@@ -355,6 +378,7 @@
 				E6EDDF1522146D220043DF77 /* MultipartFormDataTests.swift in Sources */,
 				E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */,
 				E656F48A233DFCCC00DF57E7 /* ArrayDecodingTests.swift in Sources */,
+				E6F83018256E8A6C00CE1A7C /* LossyDecodingTests.swift in Sources */,
 				E6AE7FE2256513F000FAD912 /* ISO8601FormattingTests.swift in Sources */,
 				E665630422E86F110056F954 /* AnyEncodableValueTests.swift in Sources */,
 			);
