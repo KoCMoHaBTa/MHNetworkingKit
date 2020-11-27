@@ -40,6 +40,9 @@ extension LossyDecoded: Decodable where T: Decodable {
     }
 }
 
+extension LossyDecoded: Hashable where T: Hashable {}
+extension LossyDecoded: Equatable where T: Equatable {}
+
 //A hack to make optional decoding of property wrappers to work when key is missing
 //https://stackoverflow.com/a/60108000/1608577
 //https://forums.swift.org/t/using-property-wrappers-with-codable/29804/12

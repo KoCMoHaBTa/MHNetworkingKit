@@ -325,5 +325,29 @@ class LossyDecodingTests: XCTestCase {
         XCTAssertEqual(model?.set, [.init("a"), .init("b")])
         XCTAssertEqual(model?.dictionary, ["A": .init("a"), "B": .init("b")])
     }
+    
+    func testEquatableConformance() {
+        
+        struct Model: Equatable {
+            
+            @LossyDecoded var value: String?
+        }
+        
+        XCTAssertEqual(Model(value: "edno"), Model(value: "edno"))
+        XCTAssertNotEqual(Model(value: "edno"), Model(value: "dve"))
+        XCTAssertEqual(Model(value: nil), Model(value: nil))
+    }
+    
+    func testHashableConformance() {
+        
+        struct Model: Hashable {
+            
+            @LossyDecoded var value: String?
+        }
+        
+        XCTAssertEqual(Model(value: "edno").hashValue, Model(value: "edno").hashValue)
+        XCTAssertNotEqual(Model(value: "edno").hashValue, Model(value: "dve").hashValue)
+        XCTAssertEqual(Model(value: nil).hashValue, Model(value: nil).hashValue)
+    }
 }
 #endif
