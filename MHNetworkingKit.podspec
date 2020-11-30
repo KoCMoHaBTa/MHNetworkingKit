@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MHNetworkingKit"
-  s.version      = "1.5.1"
+  s.version      = "1.5.2"
   s.source       = { :git => "https://github.com/KoCMoHaBTa/#{s.name}.git", :tag => "#{s.version}" }
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = "Milen Halachev"

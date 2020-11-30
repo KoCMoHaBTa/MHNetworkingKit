@@ -118,6 +118,16 @@ extension ISO8601Formatted: Equatable where T: Equatable {
     }
 }
 
+///Conforms to Equatable
+@available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
+extension ISO8601Formatted: Hashable where T: Hashable {
+    
+    public func hash(into hasher: inout Hasher) {
+        
+        self.wrappedValue.hash(into: &hasher)
+    }
+}
+
 //A hack to make optional decoding of property wrappers to work when key is missing
 //https://stackoverflow.com/a/60108000/1608577
 //https://forums.swift.org/t/using-property-wrappers-with-codable/29804/12
