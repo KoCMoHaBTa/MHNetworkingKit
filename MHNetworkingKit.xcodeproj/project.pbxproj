@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E610AE1C26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610AE1B26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift */; };
+		E610AE1E26397CAE002DEE00 /* ISO8601FormatterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610AE1D26397CAE002DEE00 /* ISO8601FormatterProvider.swift */; };
 		E651C9AE2215FBFF00FEFBCC /* Decodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9AD2215FBFF00FEFBCC /* Decodable+JSON.swift */; };
 		E651C9B2221605AA00FEFBCC /* KeyedDecodingContainer+Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9B1221605AA00FEFBCC /* KeyedDecodingContainer+Generics.swift */; };
 		E651C9B4221605C100FEFBCC /* UnkeyedDecodingContainer+Generics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9B3221605C100FEFBCC /* UnkeyedDecodingContainer+Generics.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E610AE1B26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ISO8601DateFormatter+Convenience.swift"; sourceTree = "<group>"; };
+		E610AE1D26397CAE002DEE00 /* ISO8601FormatterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601FormatterProvider.swift; sourceTree = "<group>"; };
 		E630300B232FB4760002AAEE /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E64FF3BC232FBBAD00E24899 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E651C9AD2215FBFF00FEFBCC /* Decodable+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+JSON.swift"; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			children = (
 				E6AE7FD62565133600FAD912 /* ISO8601Formattable.swift */,
 				E6AE7FD52565133500FAD912 /* ISO8601Formatted.swift */,
+				E610AE1D26397CAE002DEE00 /* ISO8601FormatterProvider.swift */,
+				E610AE1B26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift */,
 			);
 			path = ISO8601;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 			files = (
 				E6F83003256E6C0D00CE1A7C /* LossyDecodable.swift in Sources */,
 				E6F8300E256E89C600CE1A7C /* LossyDecoded.swift in Sources */,
+				E610AE1E26397CAE002DEE00 /* ISO8601FormatterProvider.swift in Sources */,
 				E6EDDF1022146B1F0043DF77 /* URLRequest+HTTPMethod.swift in Sources */,
 				E6AE7FD72565133600FAD912 /* ISO8601Formatted.swift in Sources */,
 				E6AE7FD82565133600FAD912 /* ISO8601Formattable.swift in Sources */,
@@ -355,6 +362,7 @@
 				E651C9C22216071500FEFBCC /* AnyEncodableValue.swift in Sources */,
 				E651C9C0221606E100FEFBCC /* DynamicCodingKey.swift in Sources */,
 				E6EDDF1322146CC80043DF77 /* MultipartFormData.swift in Sources */,
+				E610AE1C26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift in Sources */,
 				E651C9C82216083C00FEFBCC /* URLRequest+JSON.swift in Sources */,
 				E6F83014256E89EF00CE1A7C /* AnyCodingKey.swift in Sources */,
 				E6AE7FEA256514CF00FAD912 /* URLComponents+PathComponents.swift in Sources */,

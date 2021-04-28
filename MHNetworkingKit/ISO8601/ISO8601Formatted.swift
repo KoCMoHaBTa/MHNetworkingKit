@@ -11,25 +11,56 @@ import Foundation
 ///A property wrapper of Date/Date? that represents it from/to ISO8601 formatted String. Used for convenience Encoding/Decoding of Date properties from/to ISO8601 formatted String, without the need to specify dateDecodingStrategy/dateEncodingStrategy of JSONDecoder/JSONEncoder.
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
 @propertyWrapper
-public struct ISO8601Formatted<T: ISO8601Formattable> {
+public struct ISO8601Formatted<T: ISO8601Formattable, U: ISO8601FormatterProvider<T>>{
     
     public var wrappedValue: T
-    public var formatter: T.Formatter
+    
+    private var _formatter: T.Formatter? = nil
+    public var formatter: T.Formatter {
+        
+        get { _formatter ?? U.formatter }
+        
+        @available(*, deprecated, message: "Changing this value has no effect. Specify custom implementation of ISO8601FormatterProvider instead.")
+        set {  }
+    }
     
     public var projectedValue: T.FormattedValue {
         
-        return self.wrappedValue.iso8601FormattedValue(using: self.formatter)
-    }
-
-    public init(wrappedValue: T, formatter: T.Formatter = T.defaultFormatter) {
-        
-        self.wrappedValue = wrappedValue
-        self.formatter = formatter
+        return self.wrappedValue.iso8601FormattedValue(using: U.formatter)
     }
     
-    public init(_ value: T, formatter: T.Formatter = T.defaultFormatter) {
+    @available(*, deprecated, message: "Use init(wrappedValue:formatterProvider:) instead.")
+    public init(wrappedValue: T, formatter: T.Formatter) {
         
-        self.init(wrappedValue: value, formatter: formatter)
+        self.wrappedValue = wrappedValue
+        _formatter = formatter
+    }
+    
+    public init(wrappedValue: T)  {
+        
+        self.wrappedValue = wrappedValue
+    }
+    
+    public init(wrappedValue: T, formatterProvider: U.Type) {
+        
+        self.wrappedValue = wrappedValue
+    }
+    
+    @available(*, deprecated, message: "Use init(_:formatterProvider:) instead.")
+    public init(_ value: T, formatter: T.Formatter) {
+        
+        self.init(wrappedValue: value)
+        _formatter = formatter
+    }
+    
+    public init(_ value: T) {
+        
+        self.init(wrappedValue: value)
+    }
+    
+    public init(_ value: T, formatterProvider: U.Type) {
+        
+        self.init(wrappedValue: value)
     }
 }
 
@@ -42,7 +73,7 @@ extension ISO8601Formatted: Codable where T.FormattedValue: Codable {
         let container = try decoder.singleValueContainer()
         let formattedValue = try container.decode(T.FormattedValue.self)
         
-        guard let value = T(fromISO8601FormattedValue: formattedValue) else {
+        guard let value = T(fromISO8601FormattedValue: formattedValue, using: U.formatter) else {
 
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "The supplied value does conform to ISO8601 date standard.")
         }
@@ -112,7 +143,7 @@ extension ISO8601Formatted: CustomStringConvertible {
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
 extension ISO8601Formatted: Equatable where T: Equatable {
     
-    public static func == (lhs: ISO8601Formatted<T>, rhs: ISO8601Formatted<T>) -> Bool {
+    public static func == (lhs: ISO8601Formatted<T, U>, rhs: ISO8601Formatted<T, U>) -> Bool {
         
         return lhs.wrappedValue == rhs.wrappedValue
     }
@@ -134,9 +165,9 @@ extension ISO8601Formatted: Hashable where T: Hashable {
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
 extension KeyedDecodingContainer {
 
-    public func decode<T>(_ type: ISO8601Formatted<T?>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<T?> where T : Decodable {
+    public func decode<T, U>(_ type: ISO8601Formatted<T?, U>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<T?, U> where T : Decodable {
         
-        return (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<T?>(wrappedValue: nil)
+        return (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<T?, U>(wrappedValue: nil)
     }
 }
 
