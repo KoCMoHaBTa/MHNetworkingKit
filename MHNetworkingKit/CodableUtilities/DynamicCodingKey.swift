@@ -30,8 +30,6 @@ public struct DynamicCodingKey: CodingKey {
 extension DynamicCodingKey: ExpressibleByStringLiteral {
     
     public init(stringLiteral value: String) { self.init(stringValue: value)! }
-    public init(unicodeScalarLiteral value: String) { self.init(stringValue: value)! }
-    public init(extendedGraphemeClusterLiteral value: String) { self.init(stringValue: value)! }
 }
 
 extension DynamicCodingKey: ExpressibleByIntegerLiteral {

@@ -10,7 +10,7 @@ import Foundation
 
 public func +(lhs: URL, rhs: String) -> URL {
     
-    return lhs.appendingPathComponent(rhs)
+    lhs.appendingPathComponent(rhs)
 }
 
 infix operator +? : AdditionPrecedence
@@ -30,5 +30,5 @@ public func +?(lhs: URL, rhs: [String: Any]) -> URL? {
 infix operator +?! : AdditionPrecedence
 public func +?!(lhs: URL, rhs: [String: Any]) -> URL {
     
-    return (lhs +? rhs)!
+    (lhs +? rhs)!
 }

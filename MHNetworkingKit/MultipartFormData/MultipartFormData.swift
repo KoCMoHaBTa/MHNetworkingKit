@@ -35,15 +35,15 @@ public struct MultipartFormData {
     public var data: Data {
         
         //if there are no parts - return empty data
-        guard self.parts.isEmpty == false else {
+        guard parts.isEmpty == false else {
             
             return Data()
         }
         
-        let boundary = "--\(self.boundary)".data(using: .utf8)!     //preppend -- to the boundary - MIME standart
-        let lineEnding = self.lineEnding.data(using: .utf8)!
+        let boundary = "--\(boundary)".data(using: .utf8)!     //preppend -- to the boundary - MIME standart
+        let lineEnding = lineEnding.data(using: .utf8)!
         
-        var data = self.parts.reduce(into: Data(), { (data, part) in
+        var data = parts.reduce(into: Data(), { (data, part) in
             
             let contentDisposition = "Content-Disposition: form-data; name=\"\(part.name)\"; filename=\"\(part.fileName)\"".data(using: .utf8)!
             let contentType = "Content-Type: \(part.contentType)".data(using: .utf8)!

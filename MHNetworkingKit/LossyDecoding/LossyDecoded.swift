@@ -28,7 +28,7 @@ extension LossyDecoded: Encodable where T: Encodable {
     public func encode(to encoder: Encoder) throws {
 
         var container = encoder.singleValueContainer()
-        try container.encode(self.wrappedValue)
+        try container.encode(wrappedValue)
     }
 }
 
@@ -36,7 +36,7 @@ extension LossyDecoded: Decodable where T: Decodable {
     
     public init(from decoder: Decoder) throws {
         
-        self.wrappedValue = try .init(lossyDecodedFrom: decoder)
+        wrappedValue = try .init(lossyDecodedFrom: decoder)
     }
 }
 
@@ -51,19 +51,19 @@ extension KeyedDecodingContainer {
     //support for any decodable optional
     public func decode<T>(_ type: LossyDecoded<T?>.Type, forKey key: Self.Key) throws -> LossyDecoded<T?> where T : Decodable {
         
-        return (try? self.decodeIfPresent(type, forKey: key)) ?? LossyDecoded<T?>(wrappedValue: nil)
+        (try? self.decodeIfPresent(type, forKey: key)) ?? LossyDecoded<T?>(wrappedValue: nil)
     }
     
     //support for lossy decodable optional
     public func decode<T>(_ type: LossyDecoded<T?>.Type, forKey key: Self.Key) throws -> LossyDecoded<T?> where T : LossyDecodable {
         
-        return LossyDecoded<T?>(wrappedValue: try? T(lossyDecodedFrom: superDecoder(forKey: key)))
+        LossyDecoded<T?>(wrappedValue: try? T(lossyDecodedFrom: superDecoder(forKey: key)))
     }
     
     //support for lossy decodable non-optional 
     public func decode<T>(_ type: LossyDecoded<T>.Type, forKey key: Self.Key) throws -> LossyDecoded<T> where T : Decodable {
         
-        return (try? self.decodeIfPresent(type, forKey: key)) ?? LossyDecoded<T>(wrappedValue: T.init())
+        (try? self.decodeIfPresent(type, forKey: key)) ?? LossyDecoded<T>(wrappedValue: T.init())
     }
 }
 

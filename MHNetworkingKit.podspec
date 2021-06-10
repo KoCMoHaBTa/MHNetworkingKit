@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.summary      = "A lightweight swift library that contains network related extension and tools, like Multipart Form Data, JSON and URL Encoding."
   s.homepage     = "https://github.com/KoCMoHaBTa/#{s.name}"
 
-  s.swift_version = "5.4"
+  s.swift_version = "5.5"
   s.ios.deployment_target = "9.0"
 
   s.source_files  = "#{s.name}/**/*.swift", "#{s.name}/**/*.{h,m}"

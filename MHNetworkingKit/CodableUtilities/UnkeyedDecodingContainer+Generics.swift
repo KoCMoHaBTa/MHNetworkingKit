@@ -13,40 +13,38 @@ extension UnkeyedDecodingContainer {
     ///Decodes a value.
     public mutating func decode<T>() throws -> T where T: Decodable {
         
-        return try self.decode(T.self)
+        try decode(T.self)
     }
     
     ///Decodes a value, if prsent.
     public mutating func decodeIfPresent<T>() throws -> T? where T: Decodable {
         
-        return try self.decodeIfPresent(T.self)
+        try decodeIfPresent(T.self)
     }
     
     ///Decodes a value, applying a transformation block from one type to another.
     public mutating func decode<T, U>(transform: (U) throws -> T) throws -> T where T: Decodable, U: Decodable {
         
-        let original = try self.decode(U.self)
-        return try transform(original)
+        try transform(decode(U.self))
     }
     
     ///Decodes a value, if present, applying a transformation block from one type to another.
     public mutating func decodeIfPresent<T, U>(transform: (U?) throws -> T?) throws -> T? where T: Decodable, U: Decodable {
         
-        let original = try self.decodeIfPresent(U.self)
-        return try transform(original)
+        try transform(decodeIfPresent(U.self))
     }
     
     ///Decodes an array value, throwing away elements that cannot be decoded and returning successfully decoded elements.
     @available(*, deprecated, message: "Use @LossyDecoded or decodeLossyArray() instead")
     public mutating func decodeArray<T>() throws -> [T] where T: Decodable {
         
-        return try self.decodeLossyArray()
+        try decodeLossyArray()
     }
     
     public mutating func decodeLossyArray<T>() throws -> [T] where T: Decodable {
         
         var result: [T] = []
-        var container = try self.nestedUnkeyedContainer()
+        var container = try nestedUnkeyedContainer()
         
         for _ in 0..<(container.count ?? 0) {
             
@@ -63,12 +61,11 @@ extension UnkeyedDecodingContainer {
     @available(*, deprecated, message: "Use decodeLossyArray(transform:) instead")
     public mutating func decodeArray<T, U>(transform: ([U]) throws -> [T]) throws -> [T] where T: Decodable, U: Decodable {
         
-        return try self.decodeLossyArray(transform: transform)
+        try decodeLossyArray(transform: transform)
     }
     
     public mutating func decodeLossyArray<T, U>(transform: ([U]) throws -> [T]) throws -> [T] where T: Decodable, U: Decodable {
         
-        let original: [U] = try self.decodeLossyArray()
-        return try transform(original)
+        try transform(decodeLossyArray())
     }
 }

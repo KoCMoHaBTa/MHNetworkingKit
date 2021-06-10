@@ -21,12 +21,12 @@ extension Dictionary {
     
     private func urlEncode(_ object: Any) -> String {
         
-        return self.urlEncode(String(describing: object))
+        urlEncode(String(describing: object))
     }
     
     public var urlEncodedParametersString: String {
         
-        var result = self.reduce("") { (result, element) -> String in
+        var result = reduce("") { (result, element) -> String in
             
             let key = self.urlEncode(element.key)
             let value = self.urlEncode(element.value)
@@ -47,6 +47,6 @@ extension Dictionary {
     
     public var urlEncodedParametersData: Data? {
         
-        return self.urlEncodedParametersString.data(using: .utf8)
+        urlEncodedParametersString.data(using: .utf8)
     }
 }

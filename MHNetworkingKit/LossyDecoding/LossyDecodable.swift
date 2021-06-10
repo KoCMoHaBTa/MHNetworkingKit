@@ -21,6 +21,15 @@ public protocol LossyDecodable {
     
     init()
     init(lossyDecodedFrom decoder: Decoder) throws
+    init(lossyDecodedFrom decoder: Decoder, logger: Logger) throws
+}
+
+extension LossyDecodable {
+    
+    public init(lossyDecodedFrom decoder: Decoder) throws {
+        
+        try self.init(lossyDecodedFrom: decoder, logger: .default)
+    }
 }
 
 ///A type used when decoding array to throw away invalid elements
@@ -28,7 +37,7 @@ private struct UselessCodable: Codable {}
 
 extension Array: LossyDecodable where Element: Decodable {
     
-    public init(lossyDecodedFrom decoder: Decoder) throws {
+    public init(lossyDecodedFrom decoder: Decoder, logger: Logger) throws {
         
         var result: [Element] = []
         var container = try decoder.unkeyedContainer()
@@ -42,7 +51,7 @@ extension Array: LossyDecodable where Element: Decodable {
             }
             catch {
                 
-                print(error)
+                logger.log(error)
                 
                 //https://bugs.swift.org/browse/SR-5953
                 //throw the data away
@@ -56,7 +65,7 @@ extension Array: LossyDecodable where Element: Decodable {
 
 extension Set: LossyDecodable where Element: Decodable {
     
-    public init(lossyDecodedFrom decoder: Decoder) throws {
+    public init(lossyDecodedFrom decoder: Decoder, logger: Logger) throws {
         
         var result: Set<Element> = Set()
         var container = try decoder.unkeyedContainer()
@@ -70,7 +79,7 @@ extension Set: LossyDecodable where Element: Decodable {
             }
             catch {
                 
-                print(error)
+                logger.log(error)
                 
                 //https://bugs.swift.org/browse/SR-5953
                 //throw the data away
@@ -84,7 +93,7 @@ extension Set: LossyDecodable where Element: Decodable {
 
 extension Dictionary: LossyDecodable where Key == String, Value: Decodable {
     
-    public init(lossyDecodedFrom decoder: Decoder) throws {
+    public init(lossyDecodedFrom decoder: Decoder, logger: Logger) throws {
         
         var result: Dictionary<Key, Value> = [:]
         let container = try decoder.container(keyedBy: AnyCodingKey.self)
@@ -107,7 +116,7 @@ extension Optional: LossyDecodable where Wrapped: Decodable {
         self = .none
     }
     
-    public init(lossyDecodedFrom decoder: Decoder) throws {
+    public init(lossyDecodedFrom decoder: Decoder, logger: Logger) throws {
         
         self = try? Self.init(from: decoder)
     }

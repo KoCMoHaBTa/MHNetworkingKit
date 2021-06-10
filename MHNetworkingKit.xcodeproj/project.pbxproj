@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61007B426722DD100A3D3F9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61007B326722DD100A3D3F9 /* Logger.swift */; };
+		E61007B72672356500A3D3F9 /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61007B62672356500A3D3F9 /* DefaultLogger.swift */; };
+		E61007B92672357600A3D3F9 /* NoneLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61007B82672357600A3D3F9 /* NoneLogger.swift */; };
+		E61007BB2672358500A3D3F9 /* AnyLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61007BA2672358500A3D3F9 /* AnyLogger.swift */; };
 		E610AE1C26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610AE1B26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift */; };
 		E610AE1E26397CAE002DEE00 /* ISO8601FormatterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610AE1D26397CAE002DEE00 /* ISO8601FormatterProvider.swift */; };
 		E651C9AE2215FBFF00FEFBCC /* Decodable+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E651C9AD2215FBFF00FEFBCC /* Decodable+JSON.swift */; };
@@ -33,7 +37,6 @@
 		E6EDDF07221463D80043DF77 /* Data+URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF06221463D80043DF77 /* Data+URLEncoding.swift */; };
 		E6EDDF09221464160043DF77 /* URL+QueryOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF08221464160043DF77 /* URL+QueryOperator.swift */; };
 		E6EDDF0B221464800043DF77 /* URLEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */; };
-		E6EDDF0D221464B40043DF77 /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF0C221464B40043DF77 /* XCTestExtensions.swift */; };
 		E6EDDF1022146B1F0043DF77 /* URLRequest+HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF0F22146B1F0043DF77 /* URLRequest+HTTPMethod.swift */; };
 		E6EDDF1322146CC80043DF77 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF1222146CC80043DF77 /* MultipartFormData.swift */; };
 		E6EDDF1522146D220043DF77 /* MultipartFormDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */; };
@@ -55,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E61007B326722DD100A3D3F9 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		E61007B62672356500A3D3F9 /* DefaultLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
+		E61007B82672357600A3D3F9 /* NoneLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneLogger.swift; sourceTree = "<group>"; };
+		E61007BA2672358500A3D3F9 /* AnyLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyLogger.swift; sourceTree = "<group>"; };
 		E610AE1B26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ISO8601DateFormatter+Convenience.swift"; sourceTree = "<group>"; };
 		E610AE1D26397CAE002DEE00 /* ISO8601FormatterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601FormatterProvider.swift; sourceTree = "<group>"; };
 		E630300B232FB4760002AAEE /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -88,7 +95,6 @@
 		E6EDDF06221463D80043DF77 /* Data+URLEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+URLEncoding.swift"; sourceTree = "<group>"; };
 		E6EDDF08221464160043DF77 /* URL+QueryOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+QueryOperator.swift"; sourceTree = "<group>"; };
 		E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncodingTests.swift; sourceTree = "<group>"; };
-		E6EDDF0C221464B40043DF77 /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 		E6EDDF0F22146B1F0043DF77 /* URLRequest+HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+HTTPMethod.swift"; sourceTree = "<group>"; };
 		E6EDDF1222146CC80043DF77 /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
 		E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormDataTests.swift; sourceTree = "<group>"; };
@@ -118,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E61007B52672355200A3D3F9 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				E61007B326722DD100A3D3F9 /* Logger.swift */,
+				E61007B62672356500A3D3F9 /* DefaultLogger.swift */,
+				E61007BA2672358500A3D3F9 /* AnyLogger.swift */,
+				E61007B82672357600A3D3F9 /* NoneLogger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		E651C9C32216078400FEFBCC /* MultipartFormData */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +193,7 @@
 				E6EDDEE5221459010043DF77 /* MHNetworkingKit.h */,
 				E6EDDEFC221459550043DF77 /* MHNetworkingKit.swift */,
 				E6AE7FE9256514CF00FAD912 /* URLComponents+PathComponents.swift */,
+				E61007B52672355200A3D3F9 /* Logger */,
 				E651C9C62216082400FEFBCC /* URLRequestUtilities */,
 				E651C9C32216078400FEFBCC /* MultipartFormData */,
 				E6EDDF01221463A90043DF77 /* URLEncodingUtilities */,
@@ -190,7 +208,6 @@
 		E6EDDEEF221459010043DF77 /* MHNetworkingKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				E6EDDF0C221464B40043DF77 /* XCTestExtensions.swift */,
 				E6EDDEF0221459010043DF77 /* MHNetworkingKitTests.swift */,
 				E6EDDF0A221464800043DF77 /* URLEncodingTests.swift */,
 				E6EDDF1422146D220043DF77 /* MultipartFormDataTests.swift */,
@@ -295,7 +312,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Milen Halachev";
 				TargetAttributes = {
 					E6EDDEE1221459010043DF77 = {
@@ -352,6 +369,7 @@
 			files = (
 				E6F83003256E6C0D00CE1A7C /* LossyDecodable.swift in Sources */,
 				E6F8300E256E89C600CE1A7C /* LossyDecoded.swift in Sources */,
+				E61007BB2672358500A3D3F9 /* AnyLogger.swift in Sources */,
 				E610AE1E26397CAE002DEE00 /* ISO8601FormatterProvider.swift in Sources */,
 				E6EDDF1022146B1F0043DF77 /* URLRequest+HTTPMethod.swift in Sources */,
 				E6AE7FD72565133600FAD912 /* ISO8601Formatted.swift in Sources */,
@@ -362,6 +380,7 @@
 				E651C9C22216071500FEFBCC /* AnyEncodableValue.swift in Sources */,
 				E651C9C0221606E100FEFBCC /* DynamicCodingKey.swift in Sources */,
 				E6EDDF1322146CC80043DF77 /* MultipartFormData.swift in Sources */,
+				E61007B92672357600A3D3F9 /* NoneLogger.swift in Sources */,
 				E610AE1C26395DB3002DEE00 /* ISO8601DateFormatter+Convenience.swift in Sources */,
 				E651C9C82216083C00FEFBCC /* URLRequest+JSON.swift in Sources */,
 				E6F83014256E89EF00CE1A7C /* AnyCodingKey.swift in Sources */,
@@ -370,10 +389,12 @@
 				E651C9AE2215FBFF00FEFBCC /* Decodable+JSON.swift in Sources */,
 				E651C9B4221605C100FEFBCC /* UnkeyedDecodingContainer+Generics.swift in Sources */,
 				E6EDDF1822146DA30043DF77 /* Encodable+JSON.swift in Sources */,
+				E61007B426722DD100A3D3F9 /* Logger.swift in Sources */,
 				E6EDDF03221463C00043DF77 /* Dictionary+URLEncoding.swift in Sources */,
 				E651C9C52216079200FEFBCC /* MultipartFormDataPart.swift in Sources */,
 				E6EDDF05221463CA0043DF77 /* String+URLEncoding.swift in Sources */,
 				E6EDDEFD221459550043DF77 /* MHNetworkingKit.swift in Sources */,
+				E61007B72672356500A3D3F9 /* DefaultLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +403,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6EDDF0B221464800043DF77 /* URLEncodingTests.swift in Sources */,
-				E6EDDF0D221464B40043DF77 /* XCTestExtensions.swift in Sources */,
 				E6EDDF1522146D220043DF77 /* MultipartFormDataTests.swift in Sources */,
 				E6EDDEF1221459010043DF77 /* MHNetworkingKitTests.swift in Sources */,
 				E656F48A233DFCCC00DF57E7 /* LossyArrayDecodingTests.swift in Sources */,

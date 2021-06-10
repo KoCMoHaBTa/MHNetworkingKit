@@ -22,7 +22,7 @@ public struct AnyEncodableValue: Encodable {
         
         var container = encoder.singleValueContainer()
         
-        guard let value = self.value else {
+        guard let value = value else {
             
             try container.encodeNil()
             return
@@ -60,8 +60,6 @@ public struct AnyEncodableValue: Encodable {
 extension AnyEncodableValue: ExpressibleByStringLiteral {
     
     public init(stringLiteral value: String) { self.value = value }
-    public init(unicodeScalarLiteral value: String) { self.value = value }
-    public init(extendedGraphemeClusterLiteral value: String) { self.value = value }
 }
 
 extension AnyEncodableValue: ExpressibleByFloatLiteral {

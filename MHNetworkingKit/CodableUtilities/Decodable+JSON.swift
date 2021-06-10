@@ -71,11 +71,12 @@ extension Decodable {
      Creates an instance of the receiver from a JSON data.
      
      - parameter data: The JSON data.
+     - parameter logger: A logger used to log errors. Default logger prints to console.
      - returns: An isntance of the receiver or nil if decoding fails or data is nil.
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public init?(json data: Data?) {
+    public init?(json data: Data?, logger: Logger = .default) {
 
         guard let data = data else {
 
@@ -88,7 +89,7 @@ extension Decodable {
         }
         catch {
 
-            print(error)
+            logger.log(error)
             return nil
         }
     }
@@ -98,11 +99,12 @@ extension Decodable {
      
      - parameter string: The JSON string.
      - parameter encoding: The string encoding to use. Default to UTF-8.
+     - parameter logger: A logger used to log errors. Default logger prints to console.
      - returns: An isntance of the receiver or nil if decoding fails or string is nil.
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public init?(json string: String?, encoding: String.Encoding = .utf8) {
+    public init?(json string: String?, encoding: String.Encoding = .utf8, logger: Logger = .default) {
         
         guard let string = string else {
             
@@ -115,7 +117,7 @@ extension Decodable {
         }
         catch {
             
-            print(error)
+            logger.log(error)
             return nil
         }
     }
@@ -125,12 +127,13 @@ extension Decodable {
      
      - parameter object: The JSON object or array.
      - parameter options: The JSONSerialization options for creating the JSON data. Default to [].
+     - parameter logger: A logger used to log errors. Default logger prints to console.
      - returns: An isntance of the receiver or nil if decoding fails or object is nil.
      - note: This method uses the JSONSerialization API to produce the JSON data from the supplied object.
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public init?(json object: Any?, options: JSONSerialization.WritingOptions = []) {
+    public init?(json object: Any?, options: JSONSerialization.WritingOptions = [], logger: Logger = .default) {
         
         guard let object = object else {
             
@@ -143,7 +146,7 @@ extension Decodable {
         }
         catch {
             
-            print(error)
+            logger.log(error)
             return nil
         }
     }

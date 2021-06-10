@@ -26,7 +26,7 @@ public struct ISO8601Formatted<T: ISO8601Formattable, U: ISO8601FormatterProvide
     
     public var projectedValue: T.FormattedValue {
         
-        return self.wrappedValue.iso8601FormattedValue(using: U.formatter)
+        wrappedValue.iso8601FormattedValue(using: U.formatter)
     }
     
     @available(*, deprecated, message: "Use init(wrappedValue:formatterProvider:) instead.")
@@ -84,7 +84,7 @@ extension ISO8601Formatted: Codable where T.FormattedValue: Codable {
     public func encode(to encoder: Encoder) throws {
 
         var container = encoder.singleValueContainer()
-        try container.encode(self.projectedValue)
+        try container.encode(projectedValue)
     }
 }
 
@@ -92,10 +92,7 @@ extension ISO8601Formatted: Codable where T.FormattedValue: Codable {
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
 extension ISO8601Formatted: RawRepresentable {
 
-    public var rawValue: T.FormattedValue {
-
-        return self.projectedValue
-    }
+    public var rawValue: T.FormattedValue { projectedValue }
 
     public init?(rawValue: T.FormattedValue) {
 
@@ -135,7 +132,7 @@ extension ISO8601Formatted: CustomStringConvertible {
 
     public var description: String {
 
-        return String(describing: self.projectedValue)
+        String(describing: projectedValue)
     }
 }
 
@@ -145,7 +142,7 @@ extension ISO8601Formatted: Equatable where T: Equatable {
     
     public static func == (lhs: ISO8601Formatted<T, U>, rhs: ISO8601Formatted<T, U>) -> Bool {
         
-        return lhs.wrappedValue == rhs.wrappedValue
+        lhs.wrappedValue == rhs.wrappedValue
     }
 }
 
@@ -155,7 +152,7 @@ extension ISO8601Formatted: Hashable where T: Hashable {
     
     public func hash(into hasher: inout Hasher) {
         
-        self.wrappedValue.hash(into: &hasher)
+        wrappedValue.hash(into: &hasher)
     }
 }
 
@@ -167,7 +164,7 @@ extension KeyedDecodingContainer {
 
     public func decode<T, U>(_ type: ISO8601Formatted<T?, U>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<T?, U> where T : Decodable {
         
-        return (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<T?, U>(wrappedValue: nil)
+        (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<T?, U>(wrappedValue: nil)
     }
 }
 

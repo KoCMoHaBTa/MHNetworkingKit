@@ -14,7 +14,7 @@ extension URLComponents {
     
     public var pathComponents: [String]? {
         
-        return self.url?.pathComponents.filter { (pathComponent) -> Bool in
+        url?.pathComponents.filter { (pathComponent) -> Bool in
             
             let pathComponent = pathComponent.trimmingCharacters(in: .whitespacesAndNewlines)
             guard !pathComponent.isEmpty else {
@@ -23,7 +23,6 @@ extension URLComponents {
             }
             
             return pathComponent != "/"
-            
         }
     }
 }

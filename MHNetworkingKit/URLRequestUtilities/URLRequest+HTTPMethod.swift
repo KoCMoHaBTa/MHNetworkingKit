@@ -17,34 +17,23 @@ extension URLRequest {
         
         public var rawValue: String
         
-        public init?(rawValue: String) { self.rawValue = rawValue }
+        public init(rawValue: String) { self.rawValue = rawValue }
         public init(stringLiteral value: String) { self.rawValue = value }
-        public init(unicodeScalarLiteral value: String) { self.rawValue = value }
-        public init(extendedGraphemeClusterLiteral value: String) { self.rawValue = value }
         
-        public static var get: HTTPMethod = "GET"
-        public static var put: HTTPMethod = "PUT"
-        public static var post: HTTPMethod = "POST"
-        public static var delete: HTTPMethod = "DELETE"
-        public static var head: HTTPMethod = "HEAD"
-        public static var options: HTTPMethod = "OPTIONS"
-        public static var trace: HTTPMethod = "TRACE"
-        public static var connect: HTTPMethod = "CONNECT"
+        public static var get: Self = "GET"
+        public static var put: Self = "PUT"
+        public static var post: Self = "POST"
+        public static var delete: Self = "DELETE"
+        public static var head: Self = "HEAD"
+        public static var options: Self = "OPTIONS"
+        public static var trace: Self = "TRACE"
+        public static var connect: Self = "CONNECT"
     }
     
     public var method: HTTPMethod? {
         
-        get {
-            
-            guard let httpMethod = self.httpMethod else { return nil }
-            let method = HTTPMethod(rawValue: httpMethod)
-            return method
-        }
-        
-        set {
-            
-            self.httpMethod = newValue?.rawValue
-        }
+        get { httpMethod.map { .init(rawValue: $0) }}
+        set { httpMethod = newValue?.rawValue }
     }
 }
 

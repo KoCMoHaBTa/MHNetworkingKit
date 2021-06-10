@@ -35,7 +35,7 @@ extension ISO8601Formattable {
     
     public func iso8601FormattedValue() -> FormattedValue {
         
-        return self.iso8601FormattedValue(using: Self.defaultFormatter)
+        iso8601FormattedValue(using: Self.defaultFormatter)
     }
 }
 
@@ -57,7 +57,7 @@ extension Date: ISO8601Formattable {
     
     public func iso8601FormattedValue(using formatter: ISO8601DateFormatter) -> String {
         
-        return formatter.string(from: self)
+        formatter.string(from: self)
     }
 }
 
@@ -67,7 +67,7 @@ extension Optional: ISO8601Formattable where Wrapped == Date {
     
     public static var defaultFormatter: ISO8601DateFormatter {
         
-        get { return Wrapped.defaultFormatter }
+        get { Wrapped.defaultFormatter }
         set { Wrapped.defaultFormatter = newValue }
     }
     
@@ -97,7 +97,7 @@ extension Array: ISO8601Formattable where Element == Date {
     
     public static var defaultFormatter: ISO8601DateFormatter {
         
-        get { return Element.defaultFormatter }
+        get { Element.defaultFormatter }
         set { Element.defaultFormatter = newValue }
     }
     
@@ -113,7 +113,7 @@ extension Array: ISO8601Formattable where Element == Date {
     
     public func iso8601FormattedValue(using formatter: ISO8601DateFormatter) -> [String] {
         
-        return self.compactMap { (date) -> String? in
+        compactMap { (date) -> String? in
             
             formatter.string(from: date)
         }

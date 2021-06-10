@@ -34,7 +34,7 @@ extension Encodable {
     
     public func json(using encoder: JSONEncoder, encoding: String.Encoding = .utf8) throws -> String {
         
-        let data: Data = try self.json(using: encoder)
+        let data: Data = try json(using: encoder)
         guard let string = String(data: data, encoding: encoding) else {
             
             throw EncodingError.invalidValue(data, EncodingError.Context(codingPath: [], debugDescription: "Could not conver the encoded data to String."))
@@ -56,7 +56,7 @@ extension Encodable {
     
     public func json(using encoder: JSONEncoder, options: JSONSerialization.ReadingOptions) throws -> Any {
         
-        let data: Data = try self.json(using: encoder)
+        let data: Data = try json(using: encoder)
         return try JSONSerialization.jsonObject(with: data, options: options)
     }
 }
@@ -67,19 +67,20 @@ extension Encodable {
     /**
      Encodes the receiver to JSON data.
      
+     - parameter logger: A logger used to log errors. Default logger prints to console.
      - returns: JSON data representation of the receiver.
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public func json() -> Data? {
+    public func json(logger: Logger = .default) -> Data? {
         
         do {
             
-            return try self.json(using: JSONEncoder())
+            return try json(using: JSONEncoder())
         }
         catch {
             
-            print(error)
+            logger.log(error)
             return nil
         }
     }
@@ -88,19 +89,20 @@ extension Encodable {
      Encodes the receiver to JSON string.
      
      - parameter encoding: The string encoding. Default to UTF-8.
+     - parameter logger: A logger used to log errors. Default logger prints to console.
      - returns: JSON string representation of the receiver.
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public func json(encoding: String.Encoding = .utf8) -> String? {
+    public func json(encoding: String.Encoding = .utf8, logger: Logger = .default) -> String? {
 
         do {
             
-            return try self.json(using: JSONEncoder(), encoding: encoding)
+            return try json(using: JSONEncoder(), encoding: encoding)
         }
         catch {
             
-            print(error)
+            logger.log(error)
             return nil
         }
     }
@@ -109,20 +111,21 @@ extension Encodable {
      Encodes the receiver to JSON object or array.
      
      - parameter options: Options for reading the JSON data and creating the Foundation objects. Default to [].
+     - parameter logger: A logger used to log errors. Default logger prints to console.
      - returns: JSON string representation of the receiver.
      - note: This method uses the JSONSerialization API to produce the JSON object from the receiver's data.
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public func json(options: JSONSerialization.ReadingOptions = []) -> Any? {
+    public func json(options: JSONSerialization.ReadingOptions = [], logger: Logger = .default) -> Any? {
 
         do {
             
-            return try self.json(using: JSONEncoder(), options: options)
+            return try json(using: JSONEncoder(), options: options)
         }
         catch {
             
-            print(error)
+            logger.log(error)
             return nil
         }
     }
@@ -131,23 +134,12 @@ extension Encodable {
 extension Encodable {
     
     ///JSON data representation of the receiver
-    public var jsonData: Data? {
-        
-        return self.json()
-    }
-
-
+    public var jsonData: Data? { json() }
+    
     ///JSON string representation of the receiver
-    public var jsonString: String? {
-
-        return self.json()
-    }
-
+    public var jsonString: String? { json() }
     
     ///JSON object or array representation of the receiver
-    public var jsonObject: Any? {
-
-        return self.json()
-    }
+    public var jsonObject: Any? { json() }
 }
 

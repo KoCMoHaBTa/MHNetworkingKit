@@ -12,7 +12,7 @@ extension String {
     
     public var urlDecodedParameters: [String: String] {
         
-        let pairs = self.components(separatedBy: "&")
+        let pairs = components(separatedBy: "&")
         let parameters = pairs.reduce([:]) { (result, pair) -> [String: String] in
             
             let components = pair.components(separatedBy: "=")

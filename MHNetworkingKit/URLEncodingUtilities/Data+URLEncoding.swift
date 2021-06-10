@@ -12,6 +12,6 @@ extension Data {
     
     public var urlDecodedParameters: [String: String]? {
         
-        return String(data: self, encoding: .utf8)?.urlDecodedParameters
+        String(data: self, encoding: .utf8)?.urlDecodedParameters
     }
 }
