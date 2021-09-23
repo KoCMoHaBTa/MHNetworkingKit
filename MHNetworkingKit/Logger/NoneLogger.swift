@@ -11,6 +11,8 @@ import Foundation
 public struct NoneLogger: Logger {
     
     public func log(_ error: Error) {}
+    
+    public init() {}
 }
 
 extension Logger where Self == NoneLogger {

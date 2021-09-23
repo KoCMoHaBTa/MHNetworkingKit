@@ -72,7 +72,7 @@ extension Encodable {
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public func json(logger: Logger = .default) -> Data? {
+    public func json(logger: Logger = DefaultLogger()) -> Data? {
         
         do {
             
@@ -94,7 +94,7 @@ extension Encodable {
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public func json(encoding: String.Encoding = .utf8, logger: Logger = .default) -> String? {
+    public func json(encoding: String.Encoding = .utf8, logger: Logger = DefaultLogger()) -> String? {
 
         do {
             
@@ -117,7 +117,7 @@ extension Encodable {
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public func json(options: JSONSerialization.ReadingOptions = [], logger: Logger = .default) -> Any? {
+    public func json(options: JSONSerialization.ReadingOptions = [], logger: Logger = DefaultLogger()) -> Any? {
 
         do {
             

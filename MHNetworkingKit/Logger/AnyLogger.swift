@@ -10,7 +10,9 @@ import Foundation
 
 public struct AnyLogger: Logger {
     
-    public let handler: (Error) -> Void
+    public let handler: (_ error: Error) -> Void
+    
+    public init(handler: @escaping (_ error: Error) -> Void) { self.handler = handler }
     
     public func log(_ error: Error) { handler(error) }
 }

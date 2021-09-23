@@ -12,6 +12,8 @@ import Foundation
 public struct DefaultLogger: Logger {
     
     public func log(_ error: Error) { print(error) }
+    
+    public init() {}
 }
 
 extension Logger where Self == DefaultLogger {

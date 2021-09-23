@@ -76,7 +76,7 @@ extension Decodable {
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public init?(json data: Data?, logger: Logger = .default) {
+    public init?(json data: Data?, logger: Logger = DefaultLogger()) {
 
         guard let data = data else {
 
@@ -104,7 +104,7 @@ extension Decodable {
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public init?(json string: String?, encoding: String.Encoding = .utf8, logger: Logger = .default) {
+    public init?(json string: String?, encoding: String.Encoding = .utf8, logger: Logger = DefaultLogger()) {
         
         guard let string = string else {
             
@@ -133,7 +133,7 @@ extension Decodable {
      - note: Any errors are ignored and printed to the console.
      **/
     
-    public init?(json object: Any?, options: JSONSerialization.WritingOptions = [], logger: Logger = .default) {
+    public init?(json object: Any?, options: JSONSerialization.WritingOptions = [], logger: Logger = DefaultLogger()) {
         
         guard let object = object else {
             
