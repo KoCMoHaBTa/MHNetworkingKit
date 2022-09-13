@@ -37,6 +37,21 @@ class ISO8601FormattingTests: XCTestCase {
     """
     { "date": 5 }
     """
+
+    let jsonArrayAllCorrect =
+    """
+    { "date": ["2020-02-19T19:30:00Z", "2021-02-19T19:30:00Z", "2022-02-19T19:30:00Z", "2023-02-19T19:30:00Z"] }
+    """
+
+    let jsonArraySomeWrong =
+    """
+    { "date": [true, "2020-02-19T19:30:00Z", "a", 5, "2023-02-19T19:30:00Z", null] }
+    """
+
+    let jsonArrayAllWrong =
+    """
+    { "date": [true, "a", 5, null] }
+    """
     
     struct RequiredMock: Codable {
         
@@ -46,6 +61,11 @@ class ISO8601FormattingTests: XCTestCase {
     struct OptionalMock: Codable {
         
         @ISO8601Formatted var date: Date?
+    }
+
+    struct ArrayMock: Codable {
+
+        @ISO8601Formatted var date: [Date]
     }
     
     func testRequiredCodable() {
@@ -64,6 +84,12 @@ class ISO8601FormattingTests: XCTestCase {
         XCTAssertNotNil(OptionalMock(json: jsonNull))
         XCTAssertNotNil(OptionalMock(json: jsonWrongValue))
         XCTAssertNotNil(OptionalMock(json: jsonWrongType))
+    }
+
+    func testArrayDecodable() {
+      XCTAssertEqual(ArrayMock(json: jsonArrayAllCorrect)?.$date, ["2020-02-19T19:30:00Z", "2021-02-19T19:30:00Z", "2022-02-19T19:30:00Z", "2023-02-19T19:30:00Z"])
+      XCTAssertEqual(ArrayMock(json: jsonArraySomeWrong)?.$date, ["2020-02-19T19:30:00Z", "2023-02-19T19:30:00Z"])
+      XCTAssertEqual(ArrayMock(json: jsonArrayAllWrong)?.$date, [])
     }
     
     func testDecodingUsingCustomFormatter() {

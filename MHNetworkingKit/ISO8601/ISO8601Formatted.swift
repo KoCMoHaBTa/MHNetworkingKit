@@ -162,9 +162,33 @@ extension ISO8601Formatted: Hashable where T: Hashable {
 @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
 extension KeyedDecodingContainer {
 
-    public func decode<T, U>(_ type: ISO8601Formatted<T?, U>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<T?, U> where T : Decodable {
-        
-        (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<T?, U>(wrappedValue: nil)
+  /*
+   This was producing the following warning
+   Same-type requirement makes generic parameter 'T' non-generic; this is an error in Swift 6
+
+   In addition to that, it was not working correctly for arrays.
+   So concrete implementations were added for Date? and [Date].
+   Clients that conform custom types to ISO8601Formattable should add version if this hack for their type into their code in order to support them.
+
+   This is problematic generic implementation.
+   public func decode<T, U>(_ type: ISO8601Formatted<T?, U>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<T?, U> where T : Decodable {
+
+       (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<T?, U>(wrappedValue: nil)
+   }
+   */
+
+    public func decode<U>(_ type: ISO8601Formatted<Date?, U>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<Date?, U> {
+
+        (try? decodeIfPresent(type, forKey: key)) ?? ISO8601Formatted<Date?, U>(wrappedValue: nil)
+    }
+
+    public func decode<U>(_ type: ISO8601Formatted<[Date], U>.Type, forKey key: Self.Key) throws -> ISO8601Formatted<[Date], U> {
+
+        let dates = try? decodeLossyArray(forKey: key) { (array: [String]) -> [Date] in
+          array.compactMap(U.formatter.date(from:))
+        }
+
+        return ISO8601Formatted<[Date], U>(wrappedValue: dates ?? [])
     }
 }
 
